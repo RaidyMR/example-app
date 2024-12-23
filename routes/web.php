@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmsController;
 use App\Http\Controllers\DataController;
 
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +31,10 @@ Route::get('tentang', function () {
     return view('about', compact('nama', 'nim', 'nilai'));
 });
 
-Route::get('/test', [DataController::class, 'show']);
+Route::get('blog', [DashboardController::class, 'index']);
+Route::get('about/{id}', [DashboardController::class, 'about']);
+
+// Route::get('/test', [DataController::class, 'show']);
 
 // Route::get('/films', [FilmsController::class, 'index'])->name('films.index');
 // Route::post('/films', [FilmsController::class, 'store'])->name('films.store');
