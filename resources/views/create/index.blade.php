@@ -7,5 +7,3 @@
 	<button type="submit">Submit</button>
 
 </form>
-
-https://github.com/RaidyMR/example-app

@@ -43,6 +43,10 @@ class DashboardController extends Controller
 
     public function submit (Request $request) {
 
-
+        DB::table('mahasiswa')->insert([
+            'nama' => $request->post('nama'),
+            'nim' => $request->post('nim'),
+            'deskripsi' => $request->post('deskripsi'),
+        ]);
     }
 }
