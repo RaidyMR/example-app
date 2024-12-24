@@ -43,10 +43,29 @@ class DashboardController extends Controller
 
     public function submit (Request $request) {
 
-        DB::table('mahasiswa')->insert([
-            'nama' => $request->post('nama'),
-            'nim' => $request->post('nim'),
-            'deskripsi' => $request->post('deskripsi'),
-        ]);
+        $check = DB::table('mahasiswa')->where([
+            'nim' => $request->post('nim')
+        ])->get();
+
+        if ($check->isEmpty()) { 
+
+            DB::table('mahasiswa')->insert([
+                'nama' => $request->post('nama'),
+                'nim' => $request->post('nim'),
+                'deskripsi' => $request->post('deskripsi'),
+            ]);
+
+        } else {
+
+            DB::table('mahasiswa')->where([
+                'nim' => $request->post('nim')
+            ])->update([
+                'nama' => $request->post('nama'),
+                'deskripsi' => $request->post('deskripsi'),
+            ]);
+        }
+
+        return redirect()->back();
+
     }
 }
