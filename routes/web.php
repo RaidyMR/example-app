@@ -34,6 +34,10 @@ Route::get('tentang', function () {
 Route::get('blog', [DashboardController::class, 'index']);
 Route::get('about/{id}', [DashboardController::class, 'about']);
 
+Route::get('create', [DashboardController::class, 'create']);
+
+Route::post('submit', [DashboardController::class, 'submit'])->name('dashboard.submit');
+
 // Route::get('/test', [DataController::class, 'show']);
 
 // Route::get('/films', [FilmsController::class, 'index'])->name('films.index');

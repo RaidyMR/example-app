@@ -34,4 +34,15 @@ class DashboardController extends Controller
         // Select 'name' from 'mahasiswa' ORDER BY;
         echo $data;
     }
+
+
+    public function create () {
+
+        return view('create.index');        
+    }
+
+    public function submit (Request $request) {
+
+
+    }
 }
